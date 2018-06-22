@@ -4,10 +4,10 @@
         <loc>https://webpack.js.org/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/branding/index.html</loc>
+        <loc>https://webpack.js.org/api/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/index.html</loc>
+        <loc>https://webpack.js.org/branding/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/comparison/index.html</loc>
@@ -355,9 +355,6 @@
         <loc>https://webpack.js.org/loaders/file-loader/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/loaders/gzip-loader/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/loaders/html-loader/index.html</loc>
     </url>
     <url>
@@ -365,6 +362,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/loaders/imports-loader/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/loaders/gzip-loader/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/loaders/istanbul-instrumenter-loader/index.html</loc>
@@ -481,9 +481,6 @@
         <loc>https://webpack.js.org/plugins/dll-plugin/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/plugins/environment-plugin/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/plugins/eval-source-map-dev-tool-plugin/index.html</loc>
     </url>
     <url>
@@ -503,6 +500,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/ignore-plugin/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/plugins/environment-plugin/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/limit-chunk-count-plugin/index.html</loc>
