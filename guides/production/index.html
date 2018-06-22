@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/2b2e3a3707250e67e507.css" rel="stylesheet">
+      <link href="/99dd971fda9d63ad1bf0.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -130,6 +130,7 @@
   const common = require(&apos;./webpack.common.js&apos;);
 
   module.exports = merge(common, {
+    mode: &apos;production&apos;,
 <span class="token inserted">+   devtool: &apos;source-map&apos;,</span>
     plugins: [
 <span class="token deleted">-     new UglifyJSPlugin()</span>
@@ -148,6 +149,7 @@
   const common = require(&apos;./webpack.common.js&apos;);
 
   module.exports = merge(common, {
+    mode: &apos;production&apos;,
     devtool: &apos;source-map&apos;,
     plugins: [
       new UglifyJSPlugin({
