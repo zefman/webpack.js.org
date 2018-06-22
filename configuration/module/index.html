@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/f29d7108e02271e3f7d4.css" rel="stylesheet">
+      <link href="/3bd88510906b214bc0f8.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -25,11 +25,13 @@
 <p>Prevent webpack from parsing any files matching the given regular expression(s). Ignored files <strong>should not</strong> have calls to <code>import</code>, <code>require</code>, <code>define</code> or any other importing mechanism. This can boost build performance when ignoring large libraries.</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">//...</span>
-  noParse<span class="token punctuation">:</span> <span class="token regex">/jquery|lodash/</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    noParse<span class="token punctuation">:</span> <span class="token regex">/jquery|lodash/</span><span class="token punctuation">,</span>
 
-  <span class="token comment">// since webpack 3.0.0</span>
-  noParse<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token regex">/jquery|lodash/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// since webpack 3.0.0</span>
+    noParse<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token regex">/jquery|lodash/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
