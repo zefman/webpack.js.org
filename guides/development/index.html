@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/7ff85714815cbec10c9e.css" rel="stylesheet">
+      <link href="/4818dd352fdd9596dfbf.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -127,8 +127,9 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
     }
   }
 </code></pre>
-<p>You can now run <code>npm run watch</code> from the command line to see that webpack compiles your code, but doesn&apos;t exit to the command line. This is because the script is still watching your files.</p>
-<p>Now, with webpack watching your files, let&apos;s remove the error we introduced earlier:</p>
+<p>Now run <code>npm run watch</code> from the command line and see how webpack compiles your code.
+You can see that it doesn&apos;t exit the command line, because the script is currently watching your files.</p>
+<p>Now, while webpack is watching your files, let&apos;s remove the error we introduced earlier:</p>
 <p><strong>src/print.js</strong></p>
 <pre><code class="lang-diff">  export default function printMe() {
 <span class="token deleted">-   cosnole.log(&apos;I get called from print.js!&apos;);</span>
