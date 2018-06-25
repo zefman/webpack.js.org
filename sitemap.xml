@@ -67,6 +67,9 @@
         <loc>https://webpack.js.org/writers-guide/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/api/cli/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/api/compilation-hooks/index.html</loc>
     </url>
     <url>
@@ -74,9 +77,6 @@
     </url>
     <url>
         <loc>https://webpack.js.org/api/hot-module-replacement/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/api/cli/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/loaders/index.html</loc>
@@ -151,13 +151,13 @@
         <loc>https://webpack.js.org/configuration/dev-server/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/configuration/devtool/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/configuration/entry-context/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/externals/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/configuration/devtool/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/module/index.html</loc>
@@ -577,9 +577,9 @@
         <loc>https://webpack.js.org/api/plugins/resolver/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/plugins/tapable/index.html</loc>
+        <loc>https://webpack.js.org/api/plugins/template/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/plugins/template/index.html</loc>
+        <loc>https://webpack.js.org/api/plugins/tapable/index.html</loc>
     </url>
 </urlset>
