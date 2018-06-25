@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/e088f923fa18bbeebdf4.css" rel="stylesheet">
+      <link href="/6274e0c5bd943ed67e25.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -97,10 +97,9 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
         <span class="text">Extracting Boilerplate</span>
         <a aria-label="Extracting Boilerplate" class="icon-link" href="#extracting-boilerplate"></a>
       </h2>
-<p>As we learned in <a href="/guides/code-splitting">code splitting</a>, the <a href="/plugins/commons-chunk-plugin"><code>CommonsChunkPlugin</code></a> can be used to split modules out into separate bundles. A lesser-known feature of the <code>CommonsChunkPlugin</code> is extracting webpack&apos;s boilerplate and manifest which can change with every build. By specifying a name not mentioned in the <code>entry</code> configuration, the plugin will automatically extract what we want into a separate bundle:</p>
+<p>As we learned in <a href="/guides/code-splitting">code splitting</a>, the <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a> can be used to split modules out into separate bundles. webpack provides an optimization feature which does split out runtime code into a separate chunk(s) according to the options provided, simply use <a href="/configuration/optimization/#optimization-runtimechunk"><code>optimization.runtimeChunk</code></a> set to <code>single</code> for creating one runtime bundle:</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
-<span class="token inserted">+ const webpack = require(&apos;webpack&apos;);</span>
   const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);
   const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
 
@@ -110,79 +109,78 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
       new CleanWebpackPlugin([&apos;dist&apos;]),
       new HtmlWebpackPlugin({
         title: &apos;Caching&apos;
-<span class="token deleted">-     })</span>
-<span class="token inserted">+     }),</span>
-<span class="token inserted">+     new webpack.optimize.CommonsChunkPlugin({</span>
-<span class="token inserted">+       name: &apos;manifest&apos;</span>
-<span class="token inserted">+     })</span>
     ],
     output: {
       filename: &apos;[name].[chunkhash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
-    }
+    },
+<span class="token inserted">+   optimization: {</span>
+<span class="token inserted">+     runtimeChunk: &apos;single&apos;</span>
+<span class="token inserted">+   }</span>
   };
 </code></pre>
-<p>Let&apos;s run another build to see the extracted <code>manifest</code> bundle:</p>
-<pre><code class="lang-bash">Hash: 80552632979856ddab34
-Version: webpack 3.3.0
-Time: 1512ms
-                           Asset       Size  Chunks                    Chunk Names
-    main.5ec8e954e32d66dee1aa.js     542 kB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  <span class="token punctuation">[</span>big<span class="token punctuation">]</span>  main
-manifest.719796322be98041fff2.js    5.82 kB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         manifest
-                      index.html  275 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>0<span class="token punctuation">]</span> ./src/index.js 336 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 509 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<p>Let&apos;s run another build to see the extracted <code>runtime</code> bundle:</p>
+<pre><code class="lang-bash">Hash: 82c9c385607b2150fab2
+Version: webpack 4.12.0
+Time: 3027ms
+                          Asset       Size  Chunks             Chunk Names
+runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
+   main.e81de2cf758ada72f306.js   69.5 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
+                     index.html  275 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3<span class="token punctuation">]</span> ./src/index.js 309 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
     + 1 hidden module
 </code></pre>
-<p>It&apos;s also good practice to extract third-party libraries, such as <code>lodash</code> or <code>react</code>, to a separate <code>vendor</code> chunk as they are less likely to change than our local source code. This step will allow clients to request even less from the server to stay up to date. This can be done by using a combination of a new <code>entry</code> point along with another <code>CommonsChunkPlugin</code> instance:</p>
+<p>It&apos;s also good practice to extract third-party libraries, such as <code>lodash</code> or <code>react</code>, to a separate <code>vendor</code> chunk as they are less likely to change than our local source code. This step will allow clients to request even less from the server to stay up to date.
+This can be done by using the <a href="/plugins/split-chunks-plugin/#splitchunks-cachegroups"><code>cacheGroups</code></a> option of the <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a> demonstrated in <a href="/plugins/split-chunks-plugin/#split-chunks-example-2">Example 2 of SplitChunksPlugin</a>. Lets add <code>optimization.splitChunks</code> with <code>cacheGroups</code> with next params and build:</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  var path = require(&apos;path&apos;);
-  const webpack = require(&apos;webpack&apos;);
   const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);
   const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
 
   module.exports = {
-<span class="token deleted">-   entry: &apos;./src/index.js&apos;,</span>
-<span class="token inserted">+   entry: {</span>
-<span class="token inserted">+     main: &apos;./src/index.js&apos;,</span>
-<span class="token inserted">+     vendor: [</span>
-<span class="token inserted">+       &apos;lodash&apos;</span>
-<span class="token inserted">+     ]</span>
-<span class="token inserted">+   },</span>
+    entry: &apos;./src/index.js&apos;,
     plugins: [
       new CleanWebpackPlugin([&apos;dist&apos;]),
       new HtmlWebpackPlugin({
         title: &apos;Caching&apos;
       }),
-<span class="token inserted">+     new webpack.optimize.CommonsChunkPlugin({</span>
-<span class="token inserted">+       name: &apos;vendor&apos;</span>
-<span class="token inserted">+     }),</span>
-      new webpack.optimize.CommonsChunkPlugin({
-        name: &apos;manifest&apos;
-      })
     ],
     output: {
       filename: &apos;[name].[chunkhash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
+    },
+    optimization: {
+<span class="token deleted">-     runtimeChunk: &apos;single&apos;</span>
+<span class="token inserted">+     runtimeChunk: &apos;single&apos;,</span>
+<span class="token inserted">+     splitChunks: {</span>
+<span class="token inserted">+       cacheGroups: {</span>
+<span class="token inserted">+         vendor: {</span>
+<span class="token inserted">+           test: /[\\/]node_modules[\\/]/,</span>
+<span class="token inserted">+           name: &apos;vendors&apos;,</span>
+<span class="token inserted">+           chunks: &apos;all&apos;</span>
+<span class="token inserted">+         }</span>
+<span class="token inserted">+       }</span>
+<span class="token inserted">+     }</span>
     }
   };
 </code></pre>
-<blockquote class="warning"><div class="tip-content"> Note that order matters here. The <code>&apos;vendor&apos;</code> instance of the <code>CommonsChunkPlugin</code> must be included prior to the <code>&apos;manifest&apos;</code> instance. </div></blockquote><p>Let&apos;s run another build to see our new <code>vendor</code> bundle:</p>
-<pre><code class="lang-bash">Hash: 69eb92ebf8935413280d
-Version: webpack 3.3.0
-Time: 1502ms
-                           Asset       Size  Chunks                    Chunk Names
-  vendor.8196d409d2f988123318.js     541 kB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  <span class="token punctuation">[</span>big<span class="token punctuation">]</span>  vendor
-    main.0ac0ae2d4a11214ccd19.js  791 bytes       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         main
-manifest.004a1114de8bcf026622.js    5.85 kB       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         manifest
-                      index.html  352 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>1<span class="token punctuation">]</span> ./src/index.js 336 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 509 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>4<span class="token punctuation">]</span> multi lodash 28 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<p>Let&apos;s run another build to see our new <code>vendor</code> bundle:</p>
+<pre><code class="lang-bash">Hash: 213f57fc3bb5cb47c719
+Version: webpack 4.12.0
+Time: 475ms
+                          Asset       Size  Chunks             Chunk Names
+runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
+vendors.a42c3ca0d742766d7a28.js   69.4 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  vendors
+   main.abf44fedb7d11d4312d7.js  240 bytes       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
+                     index.html  353 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3<span class="token punctuation">]</span> ./src/index.js 309 bytes <span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
     + 1 hidden module
 </code></pre>
+<p>We can now see that our <code>main</code> bundle does not contain <code>vendor</code> code from <code>node_modules</code> directory and is down in size to <code>240 bytes</code>!</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#module-identifiers" id="module-identifiers"></a>
         <span class="text">Module Identifiers</span>
