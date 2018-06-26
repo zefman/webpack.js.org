@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/16de16e0793a130c9ccc.css" rel="stylesheet">
+      <link href="/de53639fb39c4917cc6a.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -73,7 +73,7 @@
         <span class="text"><code>output.chunkFilename</code></span>
         <a aria-label="&lt;code&gt;output.chunkFilename&lt;/code&gt;" class="icon-link" href="#output-chunkfilename"></a>
       </h2>
-<p><code>string</code> <code>function</code></p>
+<p><code>string</code></p>
 <p>This option determines the name of non-entry chunk files. See <a href="#output-filename"><code>output.filename</code></a> option for details on the possible values.</p>
 <p>Note that these filenames need to be generated at runtime to send the requests for chunks. Because of this, placeholders like <code>[name]</code> and <code>[chunkhash]</code> need to add a mapping from chunk id to placeholder value to the output bundle with the webpack runtime. This increases the size and may invalidate the bundle when placeholder value for any chunk changes.</p>
 <p>By default <code>[id].js</code> is used or a value inferred from <a href="#output-filename"><code>output.filename</code></a> (<code>[name]</code> is replaced with <code>[id]</code> or <code>[id].</code> is prepended).</p>
