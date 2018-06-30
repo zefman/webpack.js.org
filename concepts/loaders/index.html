@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/2f2a3d042ec016b37aaa.css" rel="stylesheet">
+      <link href="/ee8bc90dcf33ef4c9123.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -84,7 +84,7 @@ This is a concise way to display loaders, and helps to maintain clean code. It a
 <p>It&apos;s possible to specify loaders in an <code>import</code> statement, or any <a href="/api/module-methods">equivalent &quot;importing&quot; method</a>. Separate loaders from the resource with <code>!</code>. Each part is resolved relative to the current directory.</p>
 <pre><code class="lang-js"><span class="token keyword">import</span> Styles <span class="token keyword">from</span> <span class="token string">&apos;style-loader!css-loader?modules!./styles.css&apos;</span><span class="token punctuation">;</span>
 </code></pre>
-<p>It&apos;s possible to overwrite any loaders in the configuration by prefixing the entire rule with <code>!</code>.</p>
+<p>It&apos;s possible to override any loaders in the configuration by prefixing the entire rule with <code>!</code>.</p>
 <p>Options can be passed with a query parameter, e.g. <code>?key=value&amp;foo=bar</code>, or a JSON object, e.g. <code>?{&quot;key&quot;:&quot;value&quot;,&quot;foo&quot;:&quot;bar&quot;}</code>.</p>
 <blockquote class="tip"><div class="tip-content"> Use <code>module.rules</code> whenever possible, as this will reduce boilerplate in your source code and allow you to debug or locate a loader faster if something goes south. </div></blockquote><h3 class="header">
         <a class="anchor" aria-hidden="true" href="#cli" id="cli"></a>
