@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/8cfa86e4d47ba18ede3f.css" rel="stylesheet">
+      <link href="/01f134f060a82a9bd7a2.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -85,7 +85,7 @@ MyPlugin<span class="token punctuation">.</span>prototype<span class="token punc
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> MyPlugin<span class="token punctuation">;</span>
 </code></pre>
-<p>You may also feed new file paths into the watch graph to receive compilation triggers when those files change. Simply push valid filepaths into the <code>compilation.fileDependencies</code> array to add them to the watch. Note: the <code>fileDependencies</code> array is rebuilt in each compilation, so your plugin must push its own watched dependencies into each compilation to keep them under watch.</p>
+<p>You may also feed new file paths into the watch graph to receive compilation triggers when those files change. Simply push valid file paths into the <code>compilation.fileDependencies</code> array to add them to the watch. Note: the <code>fileDependencies</code> array is rebuilt in each compilation, so your plugin must push its own watched dependencies into each compilation to keep them under watch.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#changed-chunks" id="changed-chunks"></a>
         <span class="text">Changed chunks</span>
