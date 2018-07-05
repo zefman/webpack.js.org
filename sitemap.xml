@@ -58,10 +58,10 @@
         <loc>https://webpack.js.org/starter-kits/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/support/index.html</loc>
+        <loc>https://webpack.js.org/vote/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/vote/index.html</loc>
+        <loc>https://webpack.js.org/support/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/writers-guide/index.html</loc>
@@ -82,10 +82,10 @@
         <loc>https://webpack.js.org/api/loaders/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/module-variables/index.html</loc>
+        <loc>https://webpack.js.org/api/module-methods/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/module-methods/index.html</loc>
+        <loc>https://webpack.js.org/api/module-variables/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/node/index.html</loc>
@@ -229,9 +229,6 @@
         <loc>https://webpack.js.org/get-started/why-webpack/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/guides/asset-management/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/guides/author-libraries/index.html</loc>
     </url>
     <url>
@@ -367,10 +364,10 @@
         <loc>https://webpack.js.org/loaders/imports-loader/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/loaders/istanbul-instrumenter-loader/index.html</loc>
+        <loc>https://webpack.js.org/loaders/jshint-loader/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/loaders/jshint-loader/index.html</loc>
+        <loc>https://webpack.js.org/loaders/istanbul-instrumenter-loader/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/loaders/json-loader/index.html</loc>
@@ -562,10 +559,13 @@
         <loc>https://webpack.js.org/pluginsapi/template/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/plugins/compiler/index.html</loc>
+        <loc>https://webpack.js.org/guides/asset-management/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/compilation/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/api/plugins/compiler/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/module-factories/index.html</loc>
