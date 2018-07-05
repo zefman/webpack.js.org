@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/95b52cf762a9dd56090a.css" rel="stylesheet">
+      <link href="/7aa6fd612ffdbc8bd640.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -240,7 +240,7 @@ manifest.1400d5af64fc1b7b3a45.js    5.85 kB       2  <span class="token punctuat
 <li>The <code>vendor</code> bundle changed because its <code>module.id</code> was changed.</li>
 <li>And, the <code>manifest</code> bundle changed because it now contains a reference to a new module.</li>
 </ul>
-<p>The first and last are expected -- it&apos;s the <code>vendor</code> hash we want to fix. Luckily, there are two plugins we can use to resolve this issue. The first is the <a href="/plugins/named-modules-plugin"><code>NamedModulesPlugin</code></a>, which will use the path to the module rather than a numerical identifier. While this plugin is useful during development for more readable output, it does take a bit longer to run. The second option is the <a href="/plugins/hashed-module-ids-plugin"><code>HashedModuleIdsPlugin</code></a>, which is recommended for production builds:</p>
+<p>The first and last are expected -- it&apos;s the <code>vendor</code> hash we want to fix. Luckily, there are two plugins we can use to resolve this issue. The first is the <code>NamedModulesPlugin</code>, which will use the path to the module rather than a numerical identifier. While this plugin is useful during development for more readable output, it does take a bit longer to run. The second option is the <a href="/plugins/hashed-module-ids-plugin"><code>HashedModuleIdsPlugin</code></a>, which is recommended for production builds:</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
   const webpack = require(&apos;webpack&apos;);
