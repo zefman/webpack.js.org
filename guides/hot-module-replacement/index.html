@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/0090f277fbf193aa3d7f.css" rel="stylesheet">
+      <link href="/02a44da2b6962c0c13c1.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -182,6 +182,7 @@ server<span class="token punctuation">.</span><span class="token function">liste
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
   const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
+  const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);
   const webpack = require(&apos;webpack&apos;);
 
   module.exports = {
@@ -202,7 +203,7 @@ server<span class="token punctuation">.</span><span class="token function">liste
 <span class="token inserted">+     ]</span>
 <span class="token inserted">+   },</span>
     plugins: [
-      new CleanWebpackPlugin([&apos;dist&apos;])
+      new CleanWebpackPlugin([&apos;dist&apos;]),
       new HtmlWebpackPlugin({
         title: &apos;Hot Module Replacement&apos;
       }),
