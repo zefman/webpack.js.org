@@ -217,10 +217,10 @@
         <loc>https://webpack.js.org/development/how-to-write-a-plugin/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/development/release-process/index.html</loc>
+        <loc>https://webpack.js.org/development/plugin-patterns/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/development/plugin-patterns/index.html</loc>
+        <loc>https://webpack.js.org/development/release-process/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/get-started/install-webpack/index.html</loc>
@@ -448,19 +448,16 @@
         <loc>https://webpack.js.org/migrate/3/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/plugins/aggressive-splitting-plugin/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/plugins/babel-minify-webpack-plugin/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/banner-plugin/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/plugins/aggressive-splitting-plugin/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/plugins/closure-webpack-plugin/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/plugins/commons-chunk-plugin/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/compression-webpack-plugin/index.html</loc>
@@ -505,6 +502,9 @@
         <loc>https://webpack.js.org/plugins/ignore-plugin/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/plugins/commons-chunk-plugin/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/plugins/internal-plugins/index.html</loc>
     </url>
     <url>
@@ -535,6 +535,9 @@
         <loc>https://webpack.js.org/plugins/prefetch-plugin/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/plugins/profiling-plugin/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/plugins/provide-plugin/index.html</loc>
     </url>
     <url>
@@ -548,9 +551,6 @@
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/uglifyjs-webpack-plugin/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/plugins/profiling-plugin/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/watch-ignore-plugin/index.html</loc>
