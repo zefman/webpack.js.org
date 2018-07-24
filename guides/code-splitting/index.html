@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/2ebc3f813844b4876261.css" rel="stylesheet">
+      <link href="/49998ea1631cffc8ba56.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -260,7 +260,7 @@ Entrypoint index <span class="token operator">=</span> index.bundle.js
 <li>Browser support is different.</li>
 </ul>
 <p>Simple preload example can be having a <code>Component</code> which always depends on a big library that should be in a separate chunk.</p>
-<p>Lets image component <code>ChartComponent</code> which needs huge <code>ChartingLibrary</code>. It displays a <code>LoadingIndicator</code> when rendered and instantly does an on demand import of <code>ChartingLibrary</code>:</p>
+<p>Let&apos;s imagine a component <code>ChartComponent</code> which needs huge <code>ChartingLibrary</code>. It displays a <code>LoadingIndicator</code> when rendered and instantly does an on demand import of <code>ChartingLibrary</code>:</p>
 <p><strong>ChartComponent.js</strong></p>
 <pre><code class="lang-js"><span class="token comment">//...</span>
 <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackPreload: true */</span> <span class="token string">&apos;ChartingLibrary&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
