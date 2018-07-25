@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/4c928ff4f89ce697acc6.css" rel="stylesheet">
+      <link href="/18c9d94be7e9f6e47cd8.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -99,7 +99,7 @@ Time: 782ms
                                       print.bundle.js    2.74 kB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         print
                                            index.html  254 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
 precache-manifest.b5ca1c555e832d6fbf9462efd29d27eb.js  268 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
-                                                sw.js       1 kB          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
+                                    service-worker.js       1 kB          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
    <span class="token punctuation">[</span>0<span class="token punctuation">]</span> ./src/print.js 87 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
    <span class="token punctuation">[</span>1<span class="token punctuation">]</span> ./src/index.js 477 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
    <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 509 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
@@ -111,7 +111,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
        <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
         + 2 hidden modules
 </code></pre>
-<p>As you can see, we now have 2 extra files being generated; <code>sw.js</code> and the more verbose <code>precache-manifest.b5ca1c555e832d6fbf9462efd29d27eb.js</code>. <code>sw.js</code> is the Service Worker file and <code>precache-manifest.b5ca1c555e832d6fbf9462efd29d27eb.js</code> is a file that <code>sw.js</code> requires so it can run. Your own generated files will likely be different; but you should have an <code>sw.js</code> file there.</p>
+<p>As you can see, we now have 2 extra files being generated; <code>service-worker.js</code> and the more verbose <code>precache-manifest.b5ca1c555e832d6fbf9462efd29d27eb.js</code>. <code>service-worker.js</code> is the Service Worker file and <code>precache-manifest.b5ca1c555e832d6fbf9462efd29d27eb.js</code> is a file that <code>service-worker.js</code> requires so it can run. Your own generated files will likely be different; but you should have an <code>service-worker.js</code> file there.</p>
 <p>So we&apos;re now at the happy point of having produced a Service Worker. What&apos;s next?</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#registering-our-service-worker" id="registering-our-service-worker"></a>
