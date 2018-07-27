@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/dbc2b5d7f3f1cc9d6443.css" rel="stylesheet">
+      <link href="/f13e98148028bd692705.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -517,6 +517,9 @@ Default number of concurrent runs: <code>os.cpus().length - 1</code>.</p>
         <span class="text"><code>minify</code></span>
         <a aria-label="&lt;code&gt;minify&lt;/code&gt;" class="icon-link" href="#minify"></a>
       </h3>
+<blockquote>
+<p>&#x26A0;&#xFE0F; <strong>Always use <code>require</code> inside <code>minify</code> function when <code>parallel</code> option enabled</strong></p>
+</blockquote>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-js"><span class="token punctuation">[</span>
   <span class="token keyword">new</span> <span class="token class-name">UglifyJsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -525,10 +528,11 @@ Default number of concurrent runs: <code>os.cpus().length - 1</code>.</p>
 
        <span class="token comment">// Custom logic for extract comments</span>
 
-       <span class="token keyword">const</span> <span class="token punctuation">{</span> error<span class="token punctuation">,</span> map<span class="token punctuation">,</span> code<span class="token punctuation">,</span> warnings <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">minify</span><span class="token punctuation">(</span>
-         file<span class="token punctuation">,</span>
-         <span class="token punctuation">{</span> <span class="token comment">/* Your options for minification */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-       <span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">const</span> <span class="token punctuation">{</span> error<span class="token punctuation">,</span> map<span class="token punctuation">,</span> code<span class="token punctuation">,</span> warnings <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;uglify-module&apos;</span><span class="token punctuation">)</span> <span class="token comment">// Or require(&apos;./path/to/uglify-module&apos;)</span>
+         <span class="token punctuation">.</span><span class="token function">minify</span><span class="token punctuation">(</span>
+           file<span class="token punctuation">,</span>
+           <span class="token punctuation">{</span> <span class="token comment">/* Your options for minification */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+         <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
        <span class="token keyword">return</span> <span class="token punctuation">{</span> error<span class="token punctuation">,</span> map<span class="token punctuation">,</span> code<span class="token punctuation">,</span> warnings<span class="token punctuation">,</span> extractedComments <span class="token punctuation">}</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
