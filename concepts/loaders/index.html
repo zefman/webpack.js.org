@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/c67ad63ae24b2ab01135.css" rel="stylesheet">
+      <link href="/46b96b0c34708d50cecf.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -56,7 +56,8 @@ npm <span class="token function">install</span> --save-dev ts-loader
         <a aria-label="Configuration" class="icon-link" href="#configuration"></a>
       </h3>
 <p><a href="/configuration/module/#module-rules"><code>module.rules</code></a> allows you to specify several loaders within your webpack configuration.
-This is a concise way to display loaders, and helps to maintain clean code. It also offers you a full overview of each respective loader:</p>
+This is a concise way to display loaders, and helps to maintain clean code. It also offers you a full overview of each respective loader. </p>
+<p>Loaders are evaluated/executed from right to left. In the example below execution starts with sass-loader, continues with css-loader and finally ends with style-loader. See <a href="/concepts/loaders/#loader-features">&quot;Loader Features&quot;</a> for more information about loaders order.</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
@@ -69,7 +70,8 @@ This is a concise way to display loaders, and helps to maintain clean code. It a
             options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
               modules<span class="token punctuation">:</span> <span class="token boolean">true</span>
             <span class="token punctuation">}</span>
-          <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> <a class="code-link" href="/loaders/sass-loader">&apos;sass-loader&apos;</a> <span class="token punctuation">}</span>
         <span class="token punctuation">]</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
