@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/32e7758a92d829928f34.css" rel="stylesheet">
+      <link href="/c67ad63ae24b2ab01135.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -126,7 +126,7 @@ Time: 3027ms
                           Asset       Size  Chunks             Chunk Names
 runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
    main.e81de2cf758ada72f306.js   69.5 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
-                     index.html  275 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  
+                     index.html  275 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>3<span class="token punctuation">]</span> ./src/index.js 309 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
@@ -174,7 +174,7 @@ Time: 475ms
 runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
 vendors.a42c3ca0d742766d7a28.js   69.4 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  vendors
    main.abf44fedb7d11d4312d7.js  240 bytes       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
-                     index.html  353 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  
+                     index.html  353 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
 <span class="token punctuation">[</span>3<span class="token punctuation">]</span> ./src/index.js 309 bytes <span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
@@ -248,46 +248,54 @@ manifest.1400d5af64fc1b7b3a45.js    5.85 kB       2  <span class="token punctuat
   const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
 
   module.exports = {
-    entry: {
-      main: &apos;./src/index.js&apos;,
-      vendor: [
-        &apos;lodash&apos;
-      ]
-    },
+    entry: &apos;./src/index.js&apos;,
     plugins: [
       new CleanWebpackPlugin([&apos;dist&apos;]),
       new HtmlWebpackPlugin({
         title: &apos;Caching&apos;
       }),
-<span class="token inserted">+     new webpack.HashedModuleIdsPlugin(),</span>
-      new webpack.optimize.CommonsChunkPlugin({
-        name: &apos;vendor&apos;
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: &apos;manifest&apos;
-      })
+<span class="token inserted">+      new webpack.HashedModuleIdsPlugin()</span>
     ],
     output: {
       filename: &apos;[name].[chunkhash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
+    },
+    optimization: {
+      runtimeChunk: &apos;single&apos;,
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: &apos;vendors&apos;,
+            chunks: &apos;all&apos;
+          }
+        }
+      }
     }
   };
 </code></pre>
 <p>Now, despite any new local dependencies, our <code>vendor</code> hash should stay consistent between builds:</p>
-<pre><code class="lang-bash">Hash: 1f49b42afb9a5acfbaff
-Version: webpack 3.3.0
-Time: 1372ms
-                           Asset       Size  Chunks                    Chunk Names
-  vendor.eed6dcc3b30cfa138aaa.js     541 kB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  <span class="token punctuation">[</span>big<span class="token punctuation">]</span>  vendor
-    main.d103ac311788fcb7e329.js    1.22 kB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         main
-manifest.d2a6dc1ccece13f5a164.js    5.85 kB       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         manifest
-                      index.html  352 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>3Di9<span class="token punctuation">]</span> ./src/print.js 62 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>3IRH<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>DuR2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 509 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>0<span class="token punctuation">]</span> multi lodash 28 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>lVK7<span class="token punctuation">]</span> ./src/index.js 421 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<pre><code class="lang-bash">Hash: 17c37ce65c84b8ed5eb8
+Version: webpack 4.16.2
+Time: 637ms
+                          Asset       Size  Chunks             Chunk Names
+   main.216e852f60c8829c2289.js  340 bytes       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
+vendors.55e79e5927a639d21a1b.js   69.5 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  vendors
+runtime.725a1a51ede5ae0cfde0.js   1.42 KiB       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
+                     index.html  353 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
+Entrypoint main <span class="token operator">=</span> runtime.725a1a51ede5ae0cfde0.js vendors.55e79e5927a639d21a1b.js main.216e852f60c8829c2289.js
+<span class="token punctuation">[</span>YuTi<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>tjUo<span class="token punctuation">]</span> ./src/index.js + 1 modules 408 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+    <span class="token operator">|</span> ./src/index.js 341 bytes <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+    <span class="token operator">|</span> ./src/print.js 62 bytes <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>yLpj<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
     + 1 hidden module
+Child html-webpack-plugin <span class="token keyword">for</span> <span class="token string">&quot;index.html&quot;</span><span class="token keyword">:</span>
+     1 asset
+    Entrypoint undefined <span class="token operator">=</span> index.html
+    <span class="token punctuation">[</span>YuTi<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>yLpj<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+        + 2 hidden modules
 </code></pre>
 <p>And let&apos;s modify our <code>src/index.js</code> to temporarily remove that extra dependency:</p>
 <p><strong>src/index.js</strong></p>
@@ -309,28 +317,34 @@ manifest.d2a6dc1ccece13f5a164.js    5.85 kB       2  <span class="token punctuat
   document.body.appendChild(component());
 </code></pre>
 <p>And finally run our build again:</p>
-<pre><code class="lang-bash">Hash: 37e1358f135c0b992f72
-Version: webpack 3.3.0
-Time: 1557ms
-                           Asset       Size  Chunks                    Chunk Names
-  vendor.eed6dcc3b30cfa138aaa.js     541 kB       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  <span class="token punctuation">[</span>big<span class="token punctuation">]</span>  vendor
-    main.fc7f38e648da79db2aba.js  891 bytes       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         main
-manifest.bb5820632fb66c3fb357.js    5.85 kB       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>         manifest
-                      index.html  352 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>3IRH<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>DuR2<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 509 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-   <span class="token punctuation">[</span>0<span class="token punctuation">]</span> multi lodash 28 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>lVK7<span class="token punctuation">]</span> ./src/index.js 427 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<pre><code class="lang-bash">Hash: 70fb9e00dee0bada797d
+Version: webpack 4.16.2
+Time: 875ms
+                          Asset       Size  Chunks             Chunk Names
+   main.ad717f2466ce655fff5c.js  274 bytes       0  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
+vendors.55e79e5927a639d21a1b.js   69.5 KiB       1  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  vendors
+runtime.725a1a51ede5ae0cfde0.js   1.42 KiB       2  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  runtime
+                     index.html  353 bytes          <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>
+Entrypoint main <span class="token operator">=</span> runtime.725a1a51ede5ae0cfde0.js vendors.55e79e5927a639d21a1b.js main.ad717f2466ce655fff5c.js
+<span class="token punctuation">[</span>YuTi<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>tjUo<span class="token punctuation">]</span> ./src/index.js 347 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>yLpj<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
     + 1 hidden module
+Child html-webpack-plugin <span class="token keyword">for</span> <span class="token string">&quot;index.html&quot;</span><span class="token keyword">:</span>
+     1 asset
+    Entrypoint undefined <span class="token operator">=</span> index.html
+    <span class="token punctuation">[</span>YuTi<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 497 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>yLpj<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/global.js 489 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+        + 2 hidden modules
 </code></pre>
-<p>We can see that both builds yielded <code>eed6dcc3b30cfa138aaa</code> in the <code>vendor</code> bundle&apos;s filename.</p>
+<p>We can see that both builds yielded <code>55e79e5927a639d21a1b</code> in the <code>vendor</code> bundle&apos;s filename.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#conclusion" id="conclusion"></a>
         <span class="text">Conclusion</span>
         <a aria-label="Conclusion" class="icon-link" href="#conclusion"></a>
       </h2>
 <p>Caching gets messy. Plain and simple. However the walk-through above should give you a running start to deploying consistent, cachable assets. See the <em>Further Reading</em> section below to learn more.</p>
-</div><div><hr><h3>Further Reading</h3><ul><li><a href="https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31">Predictable Long Term Caching</a></li><li><a href="https://gist.github.com/sokra/ff1b0290282bfa2c037bdb6dcca1a7aa">Webpack &amp; Caching</a></li><li><a href="https://presentations.survivejs.com/advanced-webpack/">Advanced Webpack Presentation</a></li><li><a href="https://github.com/webpack/webpack/issues/1315">Issue 1315</a></li><li><a href="https://github.com/webpack/webpack.js.org/issues/652">Issue 652</a></li></ul></div><div><hr><h3>Contributors</h3><div class="contributors"><div class="contributors__list"><a class="contributor" href="https://github.com/dannycjones"><img alt="dannycjones" src="https://github.com/dannycjones.png?size=90"><span class="contributor__name"> dannycjones</span></a><a class="contributor" href="https://github.com/jouni-kantola"><img alt="jouni-kantola" src="https://github.com/jouni-kantola.png?size=90"><span class="contributor__name"> jouni-kantola</span></a><a class="contributor" href="https://github.com/okonet"><img alt="okonet" src="https://github.com/okonet.png?size=90"><span class="contributor__name"> okonet</span></a><a class="contributor" href="https://github.com/skipjack"><img alt="skipjack" src="https://github.com/skipjack.png?size=90"><span class="contributor__name"> skipjack</span></a></div></div></div><div class="interactive" id="src/components/Gitter/Gitter.jsx" data-props="{}"><span class="gitter"><div class="gitter__button js-gitter-toggle-chat-button" style="margin-bottom:0"><i class="gitter__icon icon-gitter"></i></div></span></div></section></div><footer class="footer"><div class="container footer__inner"><section class="footer__left"><a href="/guides/getting-started/" class="footer__link">Get Started</a><a href="/organization/" class="footer__link">Organization</a><a href="/starter-kits/" class="footer__link">Starter Kits</a><a href="/comparison/" class="footer__link">Comparison</a></section><section class="footer__middle"><a href="/" class="footer__icon"><img src="/d19378a95ebe6b15d5ddea281138dcf4.svg" alt="webpack icon"></a></section><section class="footer__right"><a href="/glossary/" class="footer__link">Glossary</a><a href="/branding/" class="footer__link">Branding</a><a href="https://gitter.im/webpack/webpack" target="_blank" class="footer__link">Gitter</a><a href="https://github.com/webpack/webpack/releases" target="_blank" class="footer__link">Changelog</a><a href="/license" class="footer__link footer__license"><img alt="Creative Commons License" src="/7052446b5e67df4434f4031afd2f1497.svg"><img alt="Creative Commons License" src="/7ebb1b3901ce119694f65e04f6347ef5.svg"></a></section></div></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46921629-2', 'auto');ga('send', 'pageview');</script></div></body></html>
+</div><div><hr><h3>Further Reading</h3><ul><li><a href="https://github.com/webpack/webpack.js.org/issues/652">Issue 652</a></li></ul></div><div><hr><h3>Contributors</h3><div class="contributors"><div class="contributors__list"><a class="contributor" href="https://github.com/afontcu"><img alt="afontcu" src="https://github.com/afontcu.png?size=90"><span class="contributor__name"> afontcu</span></a><a class="contributor" href="https://github.com/dannycjones"><img alt="dannycjones" src="https://github.com/dannycjones.png?size=90"><span class="contributor__name"> dannycjones</span></a><a class="contributor" href="https://github.com/jouni-kantola"><img alt="jouni-kantola" src="https://github.com/jouni-kantola.png?size=90"><span class="contributor__name"> jouni-kantola</span></a><a class="contributor" href="https://github.com/okonet"><img alt="okonet" src="https://github.com/okonet.png?size=90"><span class="contributor__name"> okonet</span></a><a class="contributor" href="https://github.com/skipjack"><img alt="skipjack" src="https://github.com/skipjack.png?size=90"><span class="contributor__name"> skipjack</span></a></div></div></div><div class="interactive" id="src/components/Gitter/Gitter.jsx" data-props="{}"><span class="gitter"><div class="gitter__button js-gitter-toggle-chat-button" style="margin-bottom:0"><i class="gitter__icon icon-gitter"></i></div></span></div></section></div><footer class="footer"><div class="container footer__inner"><section class="footer__left"><a href="/guides/getting-started/" class="footer__link">Get Started</a><a href="/organization/" class="footer__link">Organization</a><a href="/starter-kits/" class="footer__link">Starter Kits</a><a href="/comparison/" class="footer__link">Comparison</a></section><section class="footer__middle"><a href="/" class="footer__icon"><img src="/d19378a95ebe6b15d5ddea281138dcf4.svg" alt="webpack icon"></a></section><section class="footer__right"><a href="/glossary/" class="footer__link">Glossary</a><a href="/branding/" class="footer__link">Branding</a><a href="https://gitter.im/webpack/webpack" target="_blank" class="footer__link">Gitter</a><a href="https://github.com/webpack/webpack/releases" target="_blank" class="footer__link">Changelog</a><a href="/license" class="footer__link footer__license"><img alt="Creative Commons License" src="/7052446b5e67df4434f4031afd2f1497.svg"><img alt="Creative Commons License" src="/7ebb1b3901ce119694f65e04f6347ef5.svg"></a></section></div></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46921629-2', 'auto');ga('send', 'pageview');</script></div></body></html>
 
     
       <script src="/c9b2898307d6bad777c451a64c2d3393.js"></script>
