@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/eff77112c7abf98a857b.css" rel="stylesheet">
+      <link href="/54b253e52d43cf81cd5c.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -67,12 +67,28 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <a aria-label="&lt;code&gt;optimization.runtimeChunk&lt;/code&gt;" class="icon-link" href="#optimization-runtimechunk"></a>
       </h2>
 <p><code>object</code> <code>string</code> <code>boolean</code></p>
-<p>Setting <code>optimization.runtimeChunk</code> to <code>true</code> adds an additional chunk to each entry point containing only the runtime.
-It is possible to use preset mode of the plugin by providing a string value:</p>
-<ul>
-<li><code>single</code>: creates a runtime file to be shared for all generated chunks.</li>
-<li><code>multiple</code>: creates multiple runtime files for common chunks.</li>
-</ul>
+<p>Setting <code>optimization.runtimeChunk</code> to <code>true</code> or <code>&quot;multiple&quot;</code> adds an additional chunk to each entrypoint containing only the runtime. This setting is an alias for:</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    runtimeChunk<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> entrypoint <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token template-string"><span class="token string">`runtime~</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>entrypoint<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The value <code>&quot;single&quot;</code> instead creates a runtime file to be shared for all generated chunks. This setting is an alias for:</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    runtimeChunk<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">&apos;runtime&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <p>By setting <code>optimization.runtimeChunk</code> to <code>object</code> it is only possible to provide the <code>name</code> property which stands for the name or name factory for the runtime chunks.</p>
 <p>Default is <code>false</code>: each entry chunk embeds runtime.</p>
 <blockquote class="warning"><div class="tip-content"> Imported modules are initialized for each runtime chunk separately, so if you include multiple entry points on a page, beware of this behavior. You will probably want to set it to <code>single</code> or use another configuration that allows you to only have one runtime instance. </div></blockquote><p><strong>webpack.config.js</strong></p>
@@ -121,7 +137,7 @@ It is possible to use preset mode of the plugin by providing a string value:</p>
         <a aria-label="&lt;code&gt;optimization.namedChunks&lt;/code&gt;" class="icon-link" href="#optimization-namedchunks"></a>
       </h2>
 <p><code>boolean: false</code></p>
-<p>Tells webpack to use readable chunk identifiers for better debugging. This option is enabled by default for <a href="/concepts/mode/">mode</a> <code>development</code> and disabled for <a href="/concepts/mode/">mode</a> <code>production</code> if no option is provided in webpack config. </p>
+<p>Tells webpack to use readable chunk identifiers for better debugging. This option is enabled by default for <a href="/concepts/mode/">mode</a> <code>development</code> and disabled for <a href="/concepts/mode/">mode</a> <code>production</code> if no option is provided in webpack config.</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">//...</span>
