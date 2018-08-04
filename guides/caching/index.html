@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/0a1b6da99861b9488542.css" rel="stylesheet">
+      <link href="/29c026fe251b625ba7da.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -25,7 +25,7 @@
         <span class="text">Output Filenames</span>
         <a aria-label="Output Filenames" class="icon-link" href="#output-filenames"></a>
       </h2>
-<p>A simple way to ensure the browser picks up changed files is by using <code>output.filename</code> <a href="/configuration/output#output-filename">substitutions</a>. The <code>[hash]</code> substitution can be used to include a build-specific hash in the filename, however it&apos;s even better to use the <code>[chunkhash]</code> substitution which includes a chunk-specific hash in the filename.</p>
+<p>A simple way to ensure the browser picks up changed files is by using <code>output.filename</code> <a href="/configuration/output#output-filename">substitutions</a>. The <code>[hash]</code> substitution can be used to include a build-specific hash in the filename, however it&apos;s even better to use the <code>[contenthash]</code> substitution which is the hash of the content of a file, which is different for each asset.</p>
 <p>Let&apos;s get our project set up using the example from <a href="/guides/getting-started">getting started</a> with the <code>plugins</code> from <a href="/guides/output-management">output management</a>, so we don&apos;t have to deal with maintaining our <code>index.html</code> file manually:</p>
 <p><strong>project</strong></p>
 <pre><code class="lang-diff">webpack-demo
@@ -52,7 +52,7 @@
     ],
     output: {
 <span class="token deleted">-     filename: &apos;bundle.js&apos;,</span>
-<span class="token inserted">+     filename: &apos;[name].[chunkhash].js&apos;,</span>
+<span class="token inserted">+     filename: &apos;[name].[contenthash].js&apos;,</span>
       path: path.resolve(__dirname, &apos;dist&apos;)
     }
   };
@@ -111,7 +111,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
         title: &apos;Caching&apos;
     ],
     output: {
-      filename: &apos;[name].[chunkhash].js&apos;,
+      filename: &apos;[name].[contenthash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
     },
 <span class="token inserted">+   optimization: {</span>
@@ -148,7 +148,7 @@ This can be done by using the <a href="/plugins/split-chunks-plugin/#splitchunks
       }),
     ],
     output: {
-      filename: &apos;[name].[chunkhash].js&apos;,
+      filename: &apos;[name].[contenthash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
     },
     optimization: {
@@ -257,7 +257,7 @@ manifest.1400d5af64fc1b7b3a45.js    5.85 kB       2  <span class="token punctuat
 <span class="token inserted">+      new webpack.HashedModuleIdsPlugin()</span>
     ],
     output: {
-      filename: &apos;[name].[chunkhash].js&apos;,
+      filename: &apos;[name].[contenthash].js&apos;,
       path: path.resolve(__dirname, &apos;dist&apos;)
     },
     optimization: {
@@ -344,7 +344,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
         <a aria-label="Conclusion" class="icon-link" href="#conclusion"></a>
       </h2>
 <p>Caching gets messy. Plain and simple. However the walk-through above should give you a running start to deploying consistent, cachable assets. See the <em>Further Reading</em> section below to learn more.</p>
-</div><div><hr><h3>Further Reading</h3><ul><li><a href="https://github.com/webpack/webpack.js.org/issues/652">Issue 652</a></li></ul></div><div><hr><h3>Contributors</h3><div class="contributors"><div class="contributors__list"><a class="contributor" href="https://github.com/afontcu"><img alt="afontcu" src="https://github.com/afontcu.png?size=90"><span class="contributor__name"> afontcu</span></a><a class="contributor" href="https://github.com/dannycjones"><img alt="dannycjones" src="https://github.com/dannycjones.png?size=90"><span class="contributor__name"> dannycjones</span></a><a class="contributor" href="https://github.com/jouni-kantola"><img alt="jouni-kantola" src="https://github.com/jouni-kantola.png?size=90"><span class="contributor__name"> jouni-kantola</span></a><a class="contributor" href="https://github.com/okonet"><img alt="okonet" src="https://github.com/okonet.png?size=90"><span class="contributor__name"> okonet</span></a><a class="contributor" href="https://github.com/skipjack"><img alt="skipjack" src="https://github.com/skipjack.png?size=90"><span class="contributor__name"> skipjack</span></a></div></div></div><div class="interactive" id="src/components/Gitter/Gitter.jsx" data-props="{}"><span class="gitter"><div class="gitter__button js-gitter-toggle-chat-button" style="margin-bottom:0"><i class="gitter__icon icon-gitter"></i></div></span></div></section></div><footer class="footer"><div class="container footer__inner"><section class="footer__left"><a href="/guides/getting-started/" class="footer__link">Get Started</a><a href="/organization/" class="footer__link">Organization</a><a href="/starter-kits/" class="footer__link">Starter Kits</a><a href="/comparison/" class="footer__link">Comparison</a></section><section class="footer__middle"><a href="/" class="footer__icon"><img src="/d19378a95ebe6b15d5ddea281138dcf4.svg" alt="webpack icon"></a></section><section class="footer__right"><a href="/glossary/" class="footer__link">Glossary</a><a href="/branding/" class="footer__link">Branding</a><a href="https://gitter.im/webpack/webpack" target="_blank" class="footer__link">Gitter</a><a href="https://github.com/webpack/webpack/releases" target="_blank" class="footer__link">Changelog</a><a href="/license" class="footer__link footer__license"><img alt="Creative Commons License" src="/7052446b5e67df4434f4031afd2f1497.svg"><img alt="Creative Commons License" src="/7ebb1b3901ce119694f65e04f6347ef5.svg"></a></section></div></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46921629-2', 'auto');ga('send', 'pageview');</script></div></body></html>
+</div><div><hr><h3>Further Reading</h3><ul><li><a href="https://github.com/webpack/webpack.js.org/issues/652">Issue 652</a></li></ul></div><div><hr><h3>Contributors</h3><div class="contributors"><div class="contributors__list"><a class="contributor" href="https://github.com/afontcu"><img alt="afontcu" src="https://github.com/afontcu.png?size=90"><span class="contributor__name"> afontcu</span></a><a class="contributor" href="https://github.com/dannycjones"><img alt="dannycjones" src="https://github.com/dannycjones.png?size=90"><span class="contributor__name"> dannycjones</span></a><a class="contributor" href="https://github.com/fadysamirsadek"><img alt="fadysamirsadek" src="https://github.com/fadysamirsadek.png?size=90"><span class="contributor__name"> fadysamirsadek</span></a><a class="contributor" href="https://github.com/jouni-kantola"><img alt="jouni-kantola" src="https://github.com/jouni-kantola.png?size=90"><span class="contributor__name"> jouni-kantola</span></a><a class="contributor" href="https://github.com/okonet"><img alt="okonet" src="https://github.com/okonet.png?size=90"><span class="contributor__name"> okonet</span></a><a class="contributor" href="https://github.com/skipjack"><img alt="skipjack" src="https://github.com/skipjack.png?size=90"><span class="contributor__name"> skipjack</span></a></div></div></div><div class="interactive" id="src/components/Gitter/Gitter.jsx" data-props="{}"><span class="gitter"><div class="gitter__button js-gitter-toggle-chat-button" style="margin-bottom:0"><i class="gitter__icon icon-gitter"></i></div></span></div></section></div><footer class="footer"><div class="container footer__inner"><section class="footer__left"><a href="/guides/getting-started/" class="footer__link">Get Started</a><a href="/organization/" class="footer__link">Organization</a><a href="/starter-kits/" class="footer__link">Starter Kits</a><a href="/comparison/" class="footer__link">Comparison</a></section><section class="footer__middle"><a href="/" class="footer__icon"><img src="/d19378a95ebe6b15d5ddea281138dcf4.svg" alt="webpack icon"></a></section><section class="footer__right"><a href="/glossary/" class="footer__link">Glossary</a><a href="/branding/" class="footer__link">Branding</a><a href="https://gitter.im/webpack/webpack" target="_blank" class="footer__link">Gitter</a><a href="https://github.com/webpack/webpack/releases" target="_blank" class="footer__link">Changelog</a><a href="/license" class="footer__link footer__license"><img alt="Creative Commons License" src="/7052446b5e67df4434f4031afd2f1497.svg"><img alt="Creative Commons License" src="/7ebb1b3901ce119694f65e04f6347ef5.svg"></a></section></div></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46921629-2', 'auto');ga('send', 'pageview');</script></div></body></html>
 
     
       <script src="/b2de240af74c28e08e303e59106e074a.js"></script>
