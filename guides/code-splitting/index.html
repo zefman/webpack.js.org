@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/f9f58923c676c0d01160.css" rel="stylesheet">
+      <link href="/a2119a6d5d36901a4a52.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -90,7 +90,7 @@ Entrypoint another <span class="token operator">=</span> another.bundle.js
         <a aria-label="Prevent Duplication" class="icon-link" href="#prevent-duplication"></a>
       </h2>
 <blockquote class="warning"><div class="tip-content"> The CommonsChunkPlugin has been removed in webpack v4 legato. To learn how chunks are treated in the latest version, check out the <a href="/plugins/split-chunks-plugin/">SplitChunksPlugin</a>. </div></blockquote><p>The <a href="/plugins/split-chunks-plugin/"><code>SplitChunks</code></a> allows us to extract common dependencies into an existing entry chunk or an entirely new chunk. Let&apos;s use this to de-duplicate the <code>lodash</code> dependency from the previous example:</p>
-<p><strong>webpack.config.js</strong></p>
+<blockquote class="warning"><div class="tip-content"> The CommonsChunkPlugin has been removed in webpack v4 legato. To learn how chunks are treated in the latest version, check out the <a href="/plugins/split-chunks-plugin/">SplitChunksPlugin</a>. </div></blockquote><p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
 
   module.exports = {
