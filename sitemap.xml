@@ -79,16 +79,16 @@
         <loc>https://webpack.js.org/api/hot-module-replacement/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/module-methods/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/api/loaders/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/api/module-variables/index.html</loc>
+        <loc>https://webpack.js.org/api/module-methods/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/node/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/api/module-variables/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/parser/index.html</loc>
@@ -452,6 +452,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/aggressive-splitting-plugin/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/plugins/automatic-prefetch-plugin/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/plugins/babel-minify-webpack-plugin/index.html</loc>
