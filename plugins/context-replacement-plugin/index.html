@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/60693c4c9454dca654f8.css" rel="stylesheet">
+      <link href="/cd58ea8186919fcb60ea.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -36,7 +36,7 @@
 <p>If the resource (directory) matches <code>resourceRegExp</code>, the plugin replaces the default resource, recursive flag or generated regular expression with <code>newContentResource</code>, <code>newContentRecursive</code> or <code>newContextRegExp</code> respectively. If <code>newContentResource</code> is relative, it is resolved relative to the previous resource.</p>
 <p>Here&apos;s a small example to restrict module usage:</p>
 <pre><code class="lang-javascript"><span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ContextReplacementPlugin</span><span class="token punctuation">(</span>
-  <span class="token regex">/moment[\/\\]locale$/</span><span class="token punctuation">,</span>
+  <span class="token regex">/moment[/\\]locale$/</span><span class="token punctuation">,</span>
   <span class="token regex">/de|fr|hu/</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
