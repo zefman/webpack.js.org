@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/10c2475887dbeae8b35f.css" rel="stylesheet">
+      <link href="/ebb9a9822fd1dc921bdd.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -39,7 +39,7 @@ npm <span class="token function">install</span> webpack webpack-cli --save-dev
 </code></pre>
 <p><strong>src/index.js</strong></p>
 <pre><code class="lang-javascript"><span class="token keyword">function</span> <span class="token function">component</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;div&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;div&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment">// Lodash, currently included via a script, is required for this line to work</span>
   element<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;Hello&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;webpack&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -113,10 +113,9 @@ document<span class="token punctuation">.</span>body<span class="token punctuati
 <pre><code class="lang-diff"><span class="token inserted">+ import _ from &apos;lodash&apos;;</span>
 +
   function component() {
-    var element = document.createElement(&apos;div&apos;);
+    let element = document.createElement(&apos;div&apos;);
 
 <span class="token deleted">-   // Lodash, currently included via a script, is required for this line to work</span>
-<span class="token inserted">+   // Lodash, now imported by this script</span>
     element.innerHTML = _.join([&apos;Hello&apos;, &apos;webpack&apos;], &apos; &apos;);
 
     return element;
@@ -231,7 +230,9 @@ You can also <span class="token keyword">set</span> it to <span class="token str
     &quot;license&quot;: &quot;ISC&quot;,
     &quot;devDependencies&quot;: {
       &quot;webpack&quot;: &quot;^4.0.1&quot;,
-      &quot;webpack-cli&quot;: &quot;^2.0.9&quot;,
+      &quot;webpack-cli&quot;: &quot;^2.0.9&quot;
+    },
+    &quot;dependencies&quot;: {
       &quot;lodash&quot;: &quot;^4.17.5&quot;
     }
   }
