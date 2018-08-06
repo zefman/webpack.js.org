@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/cd58ea8186919fcb60ea.css" rel="stylesheet">
+      <link href="/25beb46e9bb85ae71b6b.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -41,7 +41,10 @@
   VERSION<span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">&apos;5fa3b9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   BROWSER_SUPPORTS_HTML5<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   TWO<span class="token punctuation">:</span> <span class="token string">&apos;1+1&apos;</span><span class="token punctuation">,</span>
-  <span class="token string">&apos;typeof window&apos;</span><span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">&apos;object&apos;</span><span class="token punctuation">)</span>
+  <span class="token string">&apos;typeof window&apos;</span><span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">&apos;object&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">&apos;process.env&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    NODE_ENV<span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <pre><code class="lang-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Running App version &apos;</span> <span class="token operator">+</span> VERSION<span class="token punctuation">)</span><span class="token punctuation">;</span>
