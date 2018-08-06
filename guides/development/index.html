@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/25beb46e9bb85ae71b6b.css" rel="stylesheet">
+      <link href="/d42379f27adb422d0f75.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -26,7 +26,7 @@
       </h2>
 <p>When webpack bundles your source code, it can become difficult to track down errors and warnings to their original location. For example, if you bundle three source files (<code>a.js</code>, <code>b.js</code>, and <code>c.js</code>) into one bundle (<code>bundle.js</code>) and one of the source files contains an error, the stack trace will simply point to <code>bundle.js</code>. This isn&apos;t always helpful as you probably want to know exactly which source file the error came from.</p>
 <p>In order to make it easier to track down errors and warnings, JavaScript offers <a href="http://blog.teamtreehouse.com/introduction-source-maps">source maps</a>, which maps your compiled code back to your original source code. If an error originates from <code>b.js</code>, the source map will tell you exactly that.</p>
-<p>There are a lot of <a href="/configuration/devtool">different options</a> available when it comes to source maps, be sure to check them out so you can configure them to your needs.</p>
+<p>There are a lot of <a href="/configuration/devtool">different options</a> available when it comes to source maps. Be sure to check them out so you can configure them to your needs.</p>
 <p>For this guide, let&apos;s use the <code>inline-source-map</code> option, which is good for illustrative purposes (though not for production):</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
@@ -80,7 +80,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
 <pre><code class="lang-bash"> Uncaught ReferenceError: cosnole is not defined
     at HTMLButtonElement.printMe <span class="token punctuation">(</span>print.js:2<span class="token punctuation">)</span>
 </code></pre>
-<p>We can see that the error also contains a reference to the file (<code>print.js</code>) and line number (2) where the error occurred. This is great, because now we know exactly where to look in order to fix the issue.</p>
+<p>We can see that the error also contains a reference to the file (<code>print.js</code>) and line number (2) where the error occurred. This is great because now we know exactly where to look in order to fix the issue.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#choosing-a-development-tool" id="choosing-a-development-tool"></a>
         <span class="text">Choosing a Development Tool</span>
@@ -128,7 +128,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
   }
 </code></pre>
 <p>Now run <code>npm run watch</code> from the command line and see how webpack compiles your code.
-You can see that it doesn&apos;t exit the command line, because the script is currently watching your files.</p>
+You can see that it doesn&apos;t exit the command line because the script is currently watching your files.</p>
 <p>Now, while webpack is watching your files, let&apos;s remove the error we introduced earlier:</p>
 <p><strong>src/print.js</strong></p>
 <pre><code class="lang-diff">  export default function printMe() {
@@ -241,7 +241,7 @@ You can see that it doesn&apos;t exit the command line, because the script is cu
     }
   };
 </code></pre>
-<p>The <code>publicPath</code> will be used within our server script as well in order to make sure files are served correctly on <code>http://localhost:3000</code>, the port number we&apos;ll specify later. The next step is setting up our custom <code>express</code> server:</p>
+<p>The <code>publicPath</code> will be used within our server script as well in order to make sure files are served correctly on <code>http://localhost:3000</code>. We&apos;ll specify the port number later. The next step is setting up our custom <code>express</code> server:</p>
 <p><strong>project</strong></p>
 <pre><code class="lang-diff">  webpack-demo
   |- package.json
@@ -328,7 +328,7 @@ Child html-webpack-plugin <span class="token keyword">for</span> <span class="to
        <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token punctuation">(</span>webpack<span class="token punctuation">)</span>/buildin/module.js 517 bytes <span class="token punctuation">{</span>0<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
 webpack: Compiled successfully.
 </code></pre>
-<p>Now fire up your browser and go to <code>http://localhost:3000</code>, you should see your webpack app running and functioning!</p>
+<p>Now fire up your browser and go to <code>http://localhost:3000</code>. You should see your webpack app running and functioning!</p>
 <blockquote class="tip"><div class="tip-content"> If you would like to know more about how Hot Module Replacement works, we recommend you read the <a href="/guides/hot-module-replacement/">Hot Module Replacement</a> guide. </div></blockquote><h2 class="header">
         <a class="anchor" aria-hidden="true" href="#adjusting-your-text-editor" id="adjusting-your-text-editor"></a>
         <span class="text">Adjusting Your Text Editor</span>

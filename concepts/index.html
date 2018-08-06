@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/25beb46e9bb85ae71b6b.css" rel="stylesheet">
+      <link href="/d42379f27adb422d0f75.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -39,7 +39,7 @@
         <span class="text">Entry</span>
         <a aria-label="Entry" class="icon-link" href="#entry"></a>
       </h2>
-<p>An <strong>entry point</strong> indicates which module webpack should use to begin building out its internal <em>dependency graph</em>, webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).</p>
+<p>An <strong>entry point</strong> indicates which module webpack should use to begin building out its internal <em>dependency graph</em>. webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).</p>
 <p>By default its value is <code>./src/index.js</code>, but you can specify a different (or multiple entry points) by configuring the <strong>entry</strong> property in the <a href="/configuration">webpack configuration</a>. For example:</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -51,7 +51,7 @@
         <span class="text">Output</span>
         <a aria-label="Output" class="icon-link" href="#output"></a>
       </h2>
-<p>The <strong>output</strong> property tells webpack where to emit the <em>bundles</em> it creates and how to name these files, it defaults to <code>./dist/main.js</code> for the main output file and to the <code>./dist</code> folder for any other generated file.</p>
+<p>The <strong>output</strong> property tells webpack where to emit the <em>bundles</em> it creates and how to name these files. It defaults to <code>./dist/main.js</code> for the main output file and to the <code>./dist</code> folder for any other generated file.</p>
 <p>You can configure this part of the process by specifying an <code>output</code> field in your configuration:</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;path&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -70,7 +70,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <span class="text">Loaders</span>
         <a aria-label="Loaders" class="icon-link" href="#loaders"></a>
       </h2>
-<p>Out of the box, webpack only understands JavaScript files. <strong>Loaders</strong> allow webpack to process other types of files and converting them into valid <a href="/concepts/modules">modules</a> that can be consumed by your application and added to the dependency graph.</p>
+<p>Out of the box, webpack only understands JavaScript files. <strong>Loaders</strong> allow webpack to process other types of files and convert them into valid <a href="/concepts/modules">modules</a> that can be consumed by your application and added to the dependency graph.</p>
 <blockquote class="warning"><div class="tip-content"> Note that the ability to <code>import</code> any type of module, e.g. <code>.css</code> files, is a feature specific to webpack and may not be supported by other bundlers or task runners. We feel this extension of the language is warranted as it allows developers to build a more accurate dependency graph. </div></blockquote><p>At a high level, <strong>loaders</strong> have two properties in your webpack configuration:</p>
 <ol start="undefined">
 <li>The <code>test</code> property identifies which file or files should be transformed.</li>
@@ -100,7 +100,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <span class="text">Plugins</span>
         <a aria-label="Plugins" class="icon-link" href="#plugins"></a>
       </h2>
-<p>While loaders are used to transform certain types of modules, plugins can be leveraged to perform a wider range of tasks like bundle optimization, assets management and injection of environment variables.</p>
+<p>While loaders are used to transform certain types of modules, plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables.</p>
 <blockquote class="tip"><div class="tip-content"> Check out the <a href="/api/plugins">plugin interface</a> and how to use it to extend webpacks capabilities. </div></blockquote><p>In order to use a plugin, you need to <code>require()</code> it and add it to the <code>plugins</code> array. Most plugins are customizable through options. Since you can use a plugin multiple times in a config for different purposes, you need to create an instance of it by calling it with the <code>new</code> operator.</p>
 <p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-javascript"><span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;html-webpack-plugin&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//installed via npm</span>
@@ -117,8 +117,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In the example above, the <code>html-webpack-plugin</code> generates an html file for your application injecting automatically all your generated bundles.</p>
-<blockquote class="tip"><div class="tip-content"> There are many plugins that webpack provides out of the box! Check out the <a href="/plugins">list of plugins</a>. </div></blockquote><p>Using plugins in your webpack config is straightforward - however, there are many use cases that are worth further exploration, <a href="/concepts/plugins">learn more about them here</a>.</p>
+<p>In the example above, the <code>html-webpack-plugin</code> generates an HTML file for your application by injecting automatically all your generated bundles.</p>
+<blockquote class="tip"><div class="tip-content"> There are many plugins that webpack provides out of the box! Check out the <a href="/plugins">list of plugins</a>. </div></blockquote><p>Using plugins in your webpack config is straightforward - however, there are many use cases that are worth further exploration. <a href="/concepts/plugins">Learn more about them here</a>.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#mode" id="mode"></a>
         <span class="text">Mode</span>

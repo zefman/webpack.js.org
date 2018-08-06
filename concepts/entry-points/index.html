@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/25beb46e9bb85ae71b6b.css" rel="stylesheet">
+      <link href="/d42379f27adb422d0f75.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -37,7 +37,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<blockquote class="tip"><div class="tip-content"> <strong>What happens when you pass an array to <code>entry</code>?</strong> Passing an array of file paths to the <code>entry</code> property creates what is known as a <strong>&quot;multi-main entry&quot;</strong>. This is useful when you would like to inject multiple dependent files together and graph their dependencies into one &quot;chunk&quot;. </div></blockquote><p>This is a great choice when you are looking to quickly setup a webpack configuration for an application or tool with one entry point (IE: a library). However, there is not much flexibility in extending or scaling your configuration with this syntax.</p>
+<blockquote class="tip"><div class="tip-content"> <strong>What happens when you pass an array to <code>entry</code>?</strong> Passing an array of file paths to the <code>entry</code> property creates what is known as a <strong>&quot;multi-main entry&quot;</strong>. This is useful when you would like to inject multiple dependent files together and graph their dependencies into one &quot;chunk&quot;. </div></blockquote><p>This is a great choice when you are looking to quickly setup a webpack configuration for an application or tool with one entry point (i.e., a library). However, there is not much flexibility in extending or scaling your configuration with this syntax.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#object-syntax" id="object-syntax"></a>
         <span class="text">Object Syntax</span>
@@ -72,7 +72,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>What does this do?</strong> At face value this tells webpack to create dependency graphs starting at both <code>app.js</code> and <code>vendors.js</code>. These graphs are completely separate and independent of each other (there will be a webpack bootstrap in each bundle). This is commonly seen with single page applications which have only one entry point (excluding vendors).</p>
+<p><strong>What does this do?</strong> At face value, this tells webpack to create dependency graphs starting at both <code>app.js</code> and <code>vendors.js</code>. These graphs are completely separate and independent of each other (there will be a webpack bootstrap in each bundle). This is commonly seen with single page applications which have only one entry point (excluding vendors).</p>
 <p><strong>Why?</strong> This setup allows you to leverage <code>CommonsChunkPlugin</code> and extract any vendor references from your app bundle into your vendor bundle, replacing them with <code>__webpack_require__()</code> calls. If there is no vendor code in your application bundle, then you can achieve a common pattern in webpack known as <a href="/guides/caching">long-term vendor-caching</a>.</p>
 <blockquote class="todo"><div class="tip-content"> Consider removing this scenario in favor of the DllPlugin, which provides a better vendor-splitting. </div></blockquote><h3 class="header">
         <a class="anchor" aria-hidden="true" href="#multi-page-application" id="multi-page-application"></a>
