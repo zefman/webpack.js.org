@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/3e217e3565429dbfd4a2.css" rel="stylesheet">
+      <link href="/d111345d160fed8bb93b.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -22,7 +22,7 @@
 <p>There are three general approaches to code splitting available:</p>
 <ul>
 <li>Entry Points: Manually split code using <a href="/configuration/entry-context"><code>entry</code></a> configuration.</li>
-<li>Prevent Duplication: Use the <a href="/plugins/split-chunks-plugin/"><code>SplitChunks</code></a> to dedupe and split chunks.</li>
+<li>Prevent Duplication: Use the <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a> to dedupe and split chunks.</li>
 <li>Dynamic Imports: Split code via inline function calls within modules.</li>
 </ul>
 <h2 class="header">
@@ -83,14 +83,14 @@ Entrypoint another <span class="token operator">=</span> another.bundle.js
 <li>If there are any duplicated modules between entry chunks they will be included in both bundles.</li>
 <li>It isn&apos;t as flexible and can&apos;t be used to dynamically split code with the core application logic.</li>
 </ul>
-<p>The first of these two points is definitely an issue for our example, as <code>lodash</code> is also imported within <code>./src/index.js</code> and will thus be duplicated in both bundles. Let&apos;s remove this duplication by using the <code>SplitChunks</code> plugin.</p>
+<p>The first of these two points is definitely an issue for our example, as <code>lodash</code> is also imported within <code>./src/index.js</code> and will thus be duplicated in both bundles. Let&apos;s remove this duplication by using the <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a>.</p>
 <h2 class="header">
         <a class="anchor" aria-hidden="true" href="#prevent-duplication" id="prevent-duplication"></a>
         <span class="text">Prevent Duplication</span>
         <a aria-label="Prevent Duplication" class="icon-link" href="#prevent-duplication"></a>
       </h2>
-<blockquote class="warning"><div class="tip-content"> The CommonsChunkPlugin has been removed in webpack v4 legato. To learn how chunks are treated in the latest version, check out the <a href="/plugins/split-chunks-plugin/">SplitChunksPlugin</a>. </div></blockquote><p>The <a href="/plugins/split-chunks-plugin/"><code>SplitChunks</code></a> allows us to extract common dependencies into an existing entry chunk or an entirely new chunk. Let&apos;s use this to de-duplicate the <code>lodash</code> dependency from the previous example:</p>
-<p><strong>webpack.config.js</strong></p>
+<p>The <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a> allows us to extract common dependencies into an existing entry chunk or an entirely new chunk. Let&apos;s use this to de-duplicate the <code>lodash</code> dependency from the previous example:</p>
+<blockquote class="warning"><div class="tip-content"> The <code>CommonsChunkPlugin</code> has been removed in webpack v4 legato. To learn how chunks are treated in the latest version, check out the <a href="/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a>. </div></blockquote><p><strong>webpack.config.js</strong></p>
 <pre><code class="lang-diff">  const path = require(&apos;path&apos;);
 
   module.exports = {
@@ -110,7 +110,7 @@ Entrypoint another <span class="token operator">=</span> another.bundle.js
 <span class="token inserted">+   }</span>
   };
 </code></pre>
-<p>With the <a href="/plugins/split-chunks-plugin/"><code>SplitChunks</code></a> in place, we should now see the duplicate dependency removed from our <code>index.bundle.js</code> and <code>another.bundle.js</code>. The plugin should notice that we&apos;ve separated <code>lodash</code> out to a separate chunk and remove the dead weight from our main bundle. Let&apos;s do an <code>npm run build</code> to see if it worked:</p>
+<p>With the <a href="/plugins/split-chunks-plugin/#optimization-splitchunks"><code>optimization.splitChunks</code></a> configuration option in place, we should now see the duplicate dependency removed from our <code>index.bundle.js</code> and <code>another.bundle.js</code>. The plugin should notice that we&apos;ve separated <code>lodash</code> out to a separate chunk and remove the dead weight from our main bundle. Let&apos;s do an <code>npm run build</code> to see if it worked:</p>
 <pre><code class="lang-bash">Hash: ac2ac6042ebb4f20ee54
 Version: webpack 4.7.0
 Time: 316ms
@@ -132,7 +132,7 @@ Entrypoint another <span class="token operator">=</span> vendors~another~index.b
 <li><a href="/loaders/bundle-loader"><code>bundle-loader</code></a>: Used to split code and lazy load the resulting bundles.</li>
 <li><a href="https://github.com/gaearon/promise-loader"><code>promise-loader</code></a>: Similar to the <code>bundle-loader</code> but uses promises.</li>
 </ul>
-<blockquote class="tip"><div class="tip-content"> The <a href="/plugins/commons-chunk-plugin"><code>CommonsChunkPlugin</code></a> is also used to split vendor modules from core application code using <a href="/plugins/commons-chunk-plugin/#explicit-vendor-chunk">explicit vendor chunks</a>. </div></blockquote><h2 class="header">
+<h2 class="header">
         <a class="anchor" aria-hidden="true" href="#dynamic-imports" id="dynamic-imports"></a>
         <span class="text">Dynamic Imports</span>
         <a aria-label="Dynamic Imports" class="icon-link" href="#dynamic-imports"></a>
