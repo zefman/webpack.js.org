@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/e538eef6da7f0901122d.css" rel="stylesheet">
+      <link href="/92f6d10cceb0f9546bea.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -578,7 +578,7 @@ By default in <strong>lazy mode</strong>, every request results in a new compila
       </h2>
 <p><code>object</code></p>
 <p>Proxying some URLs can be useful when you have a separate API backend development server and you want to send API requests on the same domain.</p>
-<p>The dev-server makes use of the powerful <a href="https://github.com/chimurai/http-proxy-middleware">http-proxy-middleware</a> package. Checkout its <a href="https://github.com/chimurai/http-proxy-middleware#options">documentation</a> for more advanced usages.</p>
+<p>The dev-server makes use of the powerful <a href="https://github.com/chimurai/http-proxy-middleware">http-proxy-middleware</a> package. Check out its <a href="https://github.com/chimurai/http-proxy-middleware#options">documentation</a> for more advanced usages. Note that some of <code>http-proxy-middleware</code>&apos;s features do not require a <code>target</code> key, e.g. its <code>router</code> feature, but you will still need to include a <code>target</code> key in your config here, otherwise <code>webpack-dev-server</code> won&apos;t pass it along to <code>http-proxy-middleware</code>).</p>
 <p>With a backend on <code>localhost:3000</code>, you can use this to enable proxying:</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">//...</span>
