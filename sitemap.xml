@@ -178,9 +178,6 @@
         <loc>https://webpack.js.org/configuration/output/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/configuration/performance/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/configuration/plugins/index.html</loc>
     </url>
     <url>
@@ -191,6 +188,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/target/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/configuration/performance/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/watch/index.html</loc>
@@ -448,9 +448,6 @@
         <loc>https://webpack.js.org/migrate/3/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/migrate/4/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/plugins/aggressive-splitting-plugin/index.html</loc>
     </url>
     <url>
@@ -572,6 +569,9 @@
     </url>
     <url>
         <loc>https://webpack.js.org/pluginsapi/template/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/migrate/4/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/compilation/index.html</loc>
