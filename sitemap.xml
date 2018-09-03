@@ -7,10 +7,10 @@
         <loc>https://webpack.js.org/api/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/branding/index.html</loc>
+        <loc>https://webpack.js.org/comparison/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/comparison/index.html</loc>
+        <loc>https://webpack.js.org/branding/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/concepts/index.html</loc>
@@ -172,6 +172,9 @@
         <loc>https://webpack.js.org/configuration/optimization/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/configuration/performance/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/configuration/other-options/index.html</loc>
     </url>
     <url>
@@ -184,19 +187,16 @@
         <loc>https://webpack.js.org/configuration/resolve/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/configuration/stats/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/configuration/target/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/configuration/performance/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/configuration/watch/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/contribute/debugging/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/configuration/stats/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/contribute/plugin-patterns/index.html</loc>
@@ -448,6 +448,9 @@
         <loc>https://webpack.js.org/migrate/3/index.html</loc>
     </url>
     <url>
+        <loc>https://webpack.js.org/migrate/4/index.html</loc>
+    </url>
+    <url>
         <loc>https://webpack.js.org/plugins/aggressive-splitting-plugin/index.html</loc>
     </url>
     <url>
@@ -571,16 +574,10 @@
         <loc>https://webpack.js.org/pluginsapi/template/index.html</loc>
     </url>
     <url>
-        <loc>https://webpack.js.org/migrate/4/index.html</loc>
-    </url>
-    <url>
         <loc>https://webpack.js.org/api/plugins/compilation/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/compiler/index.html</loc>
-    </url>
-    <url>
-        <loc>https://webpack.js.org/api/plugins/module-factories/index.html</loc>
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/parser/index.html</loc>
@@ -593,5 +590,8 @@
     </url>
     <url>
         <loc>https://webpack.js.org/api/plugins/template/index.html</loc>
+    </url>
+    <url>
+        <loc>https://webpack.js.org/api/plugins/module-factories/index.html</loc>
     </url>
 </urlset>

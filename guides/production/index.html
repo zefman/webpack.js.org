@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/0262c1c49fc13b5774b4.css" rel="stylesheet">
+      <link href="/7794d2d37c421ad3e76b.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -135,7 +135,6 @@
 
   module.exports = merge(common, {
     mode: &apos;production&apos;,
-    devtool: &apos;source-map&apos;
   });
 </code></pre>
 <blockquote class="tip"><div class="tip-content"> Technically, <code>NODE_ENV</code> is a system environment variable that Node.js exposes into running scripts. It is used by convention to determine dev-vs-prod behavior by server tools, build scripts, and client-side libraries. Contrary to expectations, <code>process.env.NODE_ENV</code> is not set to <code>&quot;production&quot;</code> <strong>within</strong> the build script <code>webpack.config.js</code>, see <a href="https://github.com/webpack/webpack/issues/2537">#2537</a>. Thus, conditionals like <code>process.env.NODE_ENV === &apos;production&apos; ? &apos;[name].[hash].bundle.js&apos; : &apos;[name].bundle.js&apos;</code> within webpack configurations do not work as expected. </div></blockquote><p>If you&apos;re using a library like <a href="https://reactjs.org/"><code>react</code></a>, you should actually see a significant drop in bundle size after adding this plugin. Also note that any of our local <code>/src</code> code can key off of this as well, so the following check would be valid:</p>
