@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/745d6d633378acffd611.css" rel="stylesheet">
+      <link href="/e2b3e1b4ff5bdc8b774a.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -184,7 +184,6 @@ Entrypoint another <span class="token operator">=</span> vendors~another~index.b
 <span class="token deleted">-   element.innerHTML = _.join([&apos;Hello&apos;, &apos;webpack&apos;], &apos; &apos;);</span>
 <span class="token inserted">+   return import(/* webpackChunkName: &quot;lodash&quot; */ &apos;lodash&apos;).then(({ default: _ }) =&gt; {</span>
 <span class="token inserted">+     var element = document.createElement(&apos;div&apos;);</span>
-<span class="token inserted">+     var _ = _.default;</span>
 +
 <span class="token inserted">+     element.innerHTML = _.join([&apos;Hello&apos;, &apos;webpack&apos;], &apos; &apos;);</span>
 +
