@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/ba8e6f29d21e32106a42.css" rel="stylesheet">
+      <link href="/91a23f254416b70de3a7.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -42,7 +42,9 @@
 </code></pre>
 <p>Then add the plugin to your <code>webpack</code> config. For example:</p>
 <p><strong>webpack.config.js</strong></p>
-<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre><code class="lang-js"><span class="token keyword">const</span> CompressionPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;compression-webpack-plugin&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token keyword">new</span> <span class="token class-name">CompressionPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">]</span>
